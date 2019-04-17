@@ -1,4 +1,3 @@
-from gym import spaces
 import numpy as np
 from copy import deepcopy
 
@@ -6,7 +5,6 @@ from copy import deepcopy
 class SudokuEnv():
 
     def __init__(self):
-        #self.action_space = spaces.Discrete(4)    # inside the brackets, specify the number of actions
         self.state = [0,3,4,0,4,0,0,2,1,0,0,3,0,2,1,0]   #initialise the state
         
         # Start the first round
@@ -33,20 +31,6 @@ class SudokuEnv():
         return new_state
 
     def reward(self, action, next_state):        
-        '''
-        MAX_X = MAX_Y = 4
-        
-        grid = np.arange(16).reshape([4,4])
-        it = np.nditer(grid, flags=['multi_index'])
-        while not it.finished:
-            s = it.iterindex
-            y, x = it.multi_index
-    
-            if action[1] == s:
-                if x == 0:
-
-            it.iternext()
-        '''
 
         if action[1]==0:            #if location == 0
             if action[0] in (next_state[1],next_state[2],next_state[3],next_state[4],next_state[8],next_state[12]): 
@@ -133,7 +117,6 @@ class SudokuEnv():
 
 
     def step(self, state, action):   
-        #assert self.action_space.contains(action)  
         current_state = deepcopy(state)                               #to avoid in-place substitution
 
         next_state = self.transition(current_state, action)       #next_state

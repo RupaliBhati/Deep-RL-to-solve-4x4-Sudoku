@@ -34,7 +34,6 @@ class SudokuEnv():
 
         if action[1]==0:            #if location == 0
             if action[0] in (next_state[1],next_state[2],next_state[3],next_state[4],next_state[8],next_state[12]): 
-            #if next_state[1] == action[0] or next_state[2] == action[0] or next_state[3] == action[0]:  
                 r = -10
             else:
                 r=0
